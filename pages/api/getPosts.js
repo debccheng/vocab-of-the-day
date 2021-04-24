@@ -17,10 +17,13 @@ export async function getPosts(subreddit) {
 export async function getPostData(subreddit) {
   const imageGroups = [];
   const posts = await getPosts(subreddit);
-  console.log(posts);
 
   posts.data.children.map(post => {
-    if (post.data.gallery_data && post.data.media_metadata) {
+    if (
+      post.data.gallery_data
+      && post.data.media_metadata
+      && !(post.data.title.trim()).match(' ')
+    ) {
       const imageGroup = [];
       for (let key in post.data.gallery_data.items) {
         const mediaId = post.data.gallery_data.items[key].media_id;
@@ -39,12 +42,12 @@ export async function getPostData(subreddit) {
         img: imageGroup,
         upvotes: post.data.score,
         numberOfComments: post.data.num_comments,
+        link: `reddit.com${post.data.permalink}`
       }
       imageGroups.push(postData);
     }
     return imageGroups;
   })
-  // console.log(imageGroups);
   return imageGroups;
 }
 

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { getPostData } from '../pages/api/getPosts';
 import { PageWrapper, Main, Footer, FooterLink } from '../styles/Index.sc';
-import { VocabCardWrapper, VocabCardStyled } from '../styles/VocabCard.sc';
+import { VocabCardWrapper } from '../styles/VocabCard.sc';
 import VocabCard from '../components/VocabCard';
 
 export async function getStaticProps() {
@@ -20,11 +20,10 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data }) {
-  // console.log(data);
   return (
     <PageWrapper>
       <Head>
-        <title>Create Next App</title>
+        <title>Vocab of the Day</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
@@ -33,11 +32,9 @@ export default function Home({ data }) {
             <VocabCardWrapper
               key={post.title}
             >
-              <VocabCardStyled>
-                <VocabCard
-                  post={post}
-                />
-              </VocabCardStyled>
+              <VocabCard
+                post={post}
+              />
             </VocabCardWrapper>
           )}
       </Main>
