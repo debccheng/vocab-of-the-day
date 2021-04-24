@@ -42,7 +42,7 @@ export async function getPostData(subreddit) {
         img: imageGroup,
         upvotes: post.data.score,
         numberOfComments: post.data.num_comments,
-        link: `reddit.com${post.data.permalink}`
+        link: `https://www.reddit.com${post.data.permalink}`
       }
       imageGroups.push(postData);
     }
@@ -50,33 +50,3 @@ export async function getPostData(subreddit) {
   })
   return imageGroups;
 }
-
-
-// export async function processPosts(subreddit) {
-//   const dataArray = [];
-//   const posts = await getPosts(subreddit);
-//   console.log(posts)
-//   posts.data.children.map(post => {
-//     if (post.data.media_metadata) {
-//       dataArray.push(post.data.media_metadata);
-//     }
-//   })
-//   console.log(dataArray)
-//   return dataArray;
-// }
-
-// export async function getImageSources(subreddit) {
-//   const dataArray = await processPosts(subreddit);
-//   const imageGroups = [];
-//   for (let i = 0; i < dataArray.length; i += 1) {
-//     const imageGroup = [];
-//     const imageData = dataArray[i];
-//     for (let key in imageData) {
-//       const rawImageSource = imageData[key].s.u;
-//       const imageSource = rawImageSource.replaceAll('&amp;', '&');
-//       imageGroup.push(imageSource);
-//     }
-//     imageGroups.push(imageGroup);
-//   }
-//   return imageGroups;
-// }
