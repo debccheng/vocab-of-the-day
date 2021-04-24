@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import { getPostData } from '../pages/api/getPosts';
+import { PageWrapper, Main, Footer, FooterLink } from '../styles/Index.sc';
+import { VocabCardWrapper, VocabCardStyled } from '../styles/VocabCard.sc';
 import VocabCard from '../components/VocabCard';
 
 export async function getStaticProps() {
@@ -21,34 +22,34 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   // console.log(data);
   return (
-    <div className={styles.container}>
+    <PageWrapper>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <Main>
         {data
           .map(post =>
-            <div
-              className={styles.vocabCard}
+            <VocabCardWrapper
               key={post.title}
             >
-              <VocabCard
-                post={post}
-              />
-            </div>
+              <VocabCardStyled>
+                <VocabCard
+                  post={post}
+                />
+              </VocabCardStyled>
+            </VocabCardWrapper>
           )}
-      </main>
-      <footer className={styles.footer}>
-        <a
+      </Main>
+      <Footer>
+        <FooterLink
           href="https://www.reddit.com/r/VocabWordOfTheDay/"
           target="_blank"
           rel="noopener noreferrer"
-          className={styles.footerLink}
         >
           r/VocabWordOfTheDay
-        </a>
-      </footer>
-    </div>
+        </FooterLink>
+      </Footer>
+    </PageWrapper>
   )
 }
