@@ -9,6 +9,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const Main = styled.main`
+  width: 100%;
   padding: 0.5rem 0;
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +30,10 @@ export const Footer = styled.footer`
   align-items: center;
   background: coral;
   padding: 2rem;
+
+  @media (max-width: 450px) {
+    height: 90px;
+  }
 `;
 
 export const FooterLink = styled.a`
@@ -40,5 +45,26 @@ export const FooterLink = styled.a`
 
   &:hover {
     text-decoration: underline 2px;
+  }
+`;
+
+export const FetchMoreButton = styled.button`
+  margin-inline-start: 0.5rem;
+  border: 1px solid black;
+  background: black;
+  color: coral;
+  letter-spacing: 0.1rem;
+  padding: 0.25rem 0.6rem;
+
+  @media (max-width: 400px) {
+    margin-inline-start: 1rem;
+    padding: 0.5rem;
+  }
+
+  &:hover {
+    background: transparent;
+    color: black;
+    cursor: pointer;
+    text-decoration: underline 1px;
   }
 `;

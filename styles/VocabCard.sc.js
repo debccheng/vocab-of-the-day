@@ -1,21 +1,21 @@
 import styled from 'styled-components';
-import { Carousel } from 'react-responsive-carousel';
 
 export const VocabCardWrapper = styled.div`
   margin: 1rem;
   border: 1px solid black;
 
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     height: 100%;
     width: 100%;
-    margin: 0.25rem
+    margin-block: 0.5rem;
   }
 `;
 
 export const VocabCardStyled = styled.div`
   background-color: whitesmoke;
   width: 400px;
-  @media (max-width: 400px) {
+  
+  @media (max-width: 450px) {
     height: 100%;
     width: 100%;
   }
@@ -23,6 +23,11 @@ export const VocabCardStyled = styled.div`
 
 export const ImageWrapper = styled.div`
   height: 400px;
+
+  @media (max-width: 450px) {
+    height: 100%;
+    width: auto;
+  }
 `;
 
 export const TextSection = styled.div`
