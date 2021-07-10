@@ -30,7 +30,8 @@ export function processPosts(posts) {
         for (let key in post.data.media_metadata) {
           if (post.data.media_metadata[key].id === mediaId) {
             const rawImageSrc = post.data.media_metadata[key].s.u;
-            const imageSrc = rawImageSrc.replaceAll('&amp;', '&');
+            const regex = /&amp;/g;
+            const imageSrc = rawImageSrc.replace(regex, '&');
             imageGroup.push(imageSrc);
           }
         }
